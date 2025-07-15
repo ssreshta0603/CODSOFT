@@ -1,12 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
 task_file =[]
-with open("C:\\Users\\S.Rajkumar\\OneDrive\\Desktop\\file.txt.txt","r", encoding="utf-8") as f:
+with open("file.txt","r", encoding="utf-8") as f:
     for i in f.readlines():
         task_file.append(i.strip())
-        print(i)
 def save_file():
-    with open("C:\\Users\\S.Rajkumar\\OneDrive\\Desktop\\file.txt.txt","w", encoding="utf-8") as f:
+    with open("file.txt","w", encoding="utf-8") as f:
         for i in task_file:
             f.write(i+"\n")
 
@@ -38,12 +37,9 @@ def mark_task():
     try:
         selected = listbox.curselection()
         cmplted = listbox.get(selected[0])
-        print(cmplted,"shit")
         if "✔️" not in cmplted:
             listbox.delete(selected[0])
-            print(task_file[selected[0]])
             del task_file[selected[0]]
-            
             new = cmplted+ "✔️"
             listbox.insert(END,cmplted+"✔️" )
             task_file.append(new)
@@ -89,7 +85,7 @@ l.pack()
 task = Entry(window,width = 30)
 task.pack(pady=10)
 
-add = Button(window,text="Add Task",bg="#86addc",fg="white",command=show_task)
+add = Button(window,text="Add Task",bg="#86addc",fg="black",command=show_task)
 add.pack()
 
 
@@ -100,13 +96,13 @@ listbox.pack(pady=10)
 
 err_l = Label(window,bg="#AEC6CF")
 err_l.pack()
-delete = Button(window,text="🗑️ Delete",bg="#ffabab",fg="white",command=delete_task)
+delete = Button(window,text="🗑️Delete",bg="#ffabab",fg="black",command=delete_task)
 delete.pack(pady=10)
 
-mark = Button(window,text="\u2705"+" Mark",bg="#8ac3a6",fg="white",command=mark_task)
+mark = Button(window,text="\u2705"+" Mark",bg="#8ac3a6",fg="black",command=mark_task)
 mark.place(x=130,y=420)
 
-unmark = Button(window,text="\u2705"+" Un-Mark",bg="#8ac3a6",fg="white",command=unmark_task)
+unmark = Button(window,text="\u2705"+" Un-Mark",bg="#8ac3a6",fg="black",command=unmark_task)
 unmark.place(x=190,y=420)
 
 clear = Button(window,text="Clear",bg="grey",fg="white",command=Clear)

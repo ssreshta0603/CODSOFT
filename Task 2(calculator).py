@@ -23,7 +23,6 @@ def calculate():
     ip = entry.get()
     entry.delete(0, END)
     nums = ip.strip().split(" ")
-    print(nums)
     try :
         if "/" in nums:
             i = nums.index("/")
